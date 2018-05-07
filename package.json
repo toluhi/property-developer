@@ -1,0 +1,24 @@
+{
+  "name": "property-developer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toluhi/property-developer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toluhi/property-developer/issues"
+  },
+  "homepage": "https://github.com/toluhi/property-developer#readme",
+  "devDependencies": {
+    "webpack": "^4.8.0"
+  }
+}
