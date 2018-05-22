@@ -1,3 +1,31 @@
 body {
     line-height: 2;
 }
+
+.plot {
+    background-color: yellow;
+    border-width: 1px;
+    border-color: lightgray;
+    border-style: solid;
+    height: 200px;
+}
+
+.road-right {
+    border-right-width: 15px;
+    border-right-color: gray;
+}
+
+.road-left {
+    border-left-width: 15px;
+    border-left-color: gray;
+}
+
+.road-top {
+    border-top-width: 15px;
+    border-top-color: gray;
+}
+
+.road-bottom {
+    border-bottom-width: 15px;
+    border-bottom-color: gray;
+}
