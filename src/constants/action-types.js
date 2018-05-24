@@ -1,0 +1,7 @@
+export const ADD_PROPERTY = "ADD_PROPERTY";
+export const ADD_PROPERTIES = "ADD_PROPERTIES";
+export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
+export const LOGIN_FAILED = "LOGIN_FAILED";
+export const LOGOUT = "LOGOUT";
+export const SIGNUP_SUCCEEDED = "SIGNUP_SUCCEEDED";
+export const SIGNUP_FAILED = "SIGNUP_FAILED";

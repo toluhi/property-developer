@@ -1,13 +1,16 @@
 body {
     line-height: 2;
+    background-color: aliceblue
 }
 
 .plot {
     background-color: yellow;
     border-width: 1px;
-    border-color: lightgray;
+    border-color: white;
     border-style: solid;
     height: 200px;
+    background-image:url('~/src/img/lawn.png');
+    background-repeat: repeat;
 }
 
 .road-right {
@@ -28,4 +31,14 @@ body {
 .road-bottom {
     border-bottom-width: 15px;
     border-bottom-color: gray;
+}
+
+.badge {
+    margin-top: 5px
+}
+
+.toolbar {
+    right: 15px;
+    bottom: 5px;
+    position: absolute;
 }

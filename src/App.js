@@ -36,11 +36,6 @@ class App extends React.Component {
           <SignupModal showSignup={this.state.showSignup}
           onClose={() => this.setState({showSignup: false})}
           onsignupClicked={(password) => this.props.signup(password)}/>   
-        <p>Let's Go!</p>
-        <Button onClick={() => {
-          this.props.addProperty({name: 'new property'});
-          this.props.login("0x04cd700dae4bbd9183225123fa7523e6c29604ac", "asdfg");
-          }}>Test</Button>
       </div>
     );
   }
