@@ -1,11 +1,23 @@
-import { ADD_PROPERTY, ADD_PROPERTIES, LOGIN_SUCCESSFUL, LOGIN_FAILED, LOGOUT, SIGNUP_SUCCEEDED, SIGNUP_FAILED } from "../constants/action-types";
+import {
+    ADD_PROPERTY, ADD_PROPERTIES, LOGIN_SUCCESSFUL, LOGIN_FAILED, LOGOUT, SIGNUP_SUCCEEDED, SIGNUP_FAILED,
+    CHANGE_CONTRACT_ADDRESS
+} from "../constants/action-types";
 import Web3 from 'web3';
+import abi from '../contracts/landContract.json';
+
+let contractAddress = '0xe516ed07eec4b93c58b64cb1fd7ccf1f365eb3d5';
+
 let web3 = new Web3();
 web3.setProvider(
     new Web3.providers.WebsocketProvider(
         'ws://localhost:8546'
     )
 );
+
+let contractInstance = new web3.eth.Contract(abi, contractAddress);
+
+contractInstance.methods.getPlots().call().then(response => console.log(response))
+    .catch(error => console.error(error));
 
 export const addProperty = property => {
     return dispatch => {
@@ -54,12 +66,26 @@ export const logout = () => {
 export const signup = (password) => {
     return dispatch => {
         web3.eth.personal.newAccount(password)
-        .then(response => {
-            console.info('new account ', response);
-            dispatch({type: SIGNUP_SUCCEEDED, payload: response})
-        }).catch(error => {
-            console.error('error creating account ', error);
-            dispatch({ type: SIGNUP_FAILED})
-        })
+            .then(response => {
+                console.info('new account ', response);
+                dispatch({ type: SIGNUP_SUCCEEDED, payload: response })
+            }).catch(error => {
+                console.error('error creating account ', error);
+                dispatch({ type: SIGNUP_FAILED })
+            })
+    }
+}
+
+export const changeContractAddress = (newAddress) => {
+    return dispatch => {
+        let contractInstance = new web3.eth.Contract(abi, contractAddress);
+
+        dispatch({ type: CHANGE_CONTRACT_ADDRESS, payload: { contractAddress: newAddress, contractAddressValid: true, contractInstance: contractInstance } });
+    }
+}
+
+export const clearContractAddress = _ => {
+    return dispatch => {
+        dispatch({ type: CHANGE_CONTRACT_ADDRESS, payload: { contractAddress: null, contractAddressValid: false, contractInstance: null } })
     }
 }

@@ -5,6 +5,7 @@ import MainNav from './Components/Navbar';
 import Plots from './Components/Plots';
 import LoginModal from './Components/LoginModal'
 import SignupModal from './Components/SignupModal'
+import Header from './Components/Header'
 import { connect} from 'react-redux';
 import { addProperty, login, logout, signup } from "./actions"
 
@@ -29,6 +30,9 @@ class App extends React.Component {
          onSignupClicked={() => this.setState({showSignup: true})}
           userId={this.props.userId}
           onLogoutClicked={this.props.logout}/>
+          <div className="container">
+          <Header/>
+          </div>
           <Plots/>
           <LoginModal showLogin={this.state.showLogin} 
               onClose={() => this.setState({showLogin: false})}

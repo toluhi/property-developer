@@ -21,7 +21,7 @@ class LoginModal extends React.Component {
           <ControlLabel>Public key/Address</ControlLabel>
           <FormControl
             type="text"
-            placeholder="Enter you account address"
+            placeholder="Enter your account address"
             onChange={e => this.setState({address: e.target.value})}
           />
 

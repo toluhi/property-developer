@@ -1,4 +1,4 @@
-import { ADD_PROPERTY, LOGIN_FAILED, LOGIN_SUCCESSFUL, LOGOUT, SIGNUP_FAILED, SIGNUP_SUCCEEDED } from "../constants/action-types";
+import { ADD_PROPERTY, LOGIN_FAILED, LOGIN_SUCCESSFUL, LOGOUT, SIGNUP_FAILED, SIGNUP_SUCCEEDED, CHANGE_CONTRACT_ADDRESS } from "../constants/action-types";
 
 const initialState = {
     properties : []
@@ -15,6 +15,8 @@ const rootReducer = (state = initialState, action) => {
         case LOGOUT:
         case SIGNUP_FAILED:
             return {...state, userId: null};
+        case CHANGE_CONTRACT_ADDRESS:
+            return {...state, contract: action.payload}
         default:
             return state;
     }

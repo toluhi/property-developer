@@ -42,3 +42,19 @@ body {
     bottom: 5px;
     position: absolute;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.header {
+    background-color: transparent;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.full-width {
+    width: 100%;
+}
