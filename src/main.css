@@ -58,3 +58,7 @@ body {
 .full-width {
     width: 100%;
 }
+
+.landing {
+    margin: 150px;
+}

@@ -1,7 +1,8 @@
-pragma solidity ^0.4.12;
+pragma solidity ^0.4.11;
 
 contract LandContract {
     address owner;
+    mapping (address => uint) public balances;
     
     struct Plot {
         address owner;
@@ -57,15 +58,21 @@ contract LandContract {
     
     function putPlotUpForSale(uint index, uint price) public {
         Plot storage plot = plots[index];
-        if(plot.owner == address(0) || msg.sender != plot.owner || plot.forSale) {
-            revert();
-        }
         
-        require(price > 0);
+        require(msg.sender == plot.owner && price > 0);
         
         plot.forSale = true;
         plot.price = price;
         emit PlotAvailabilityChanged(index, price, true);
+    }
+    
+    function takeOffMarket(uint index) public {
+        Plot storage plot = plots[index];
+        
+        require(msg.sender == plot.owner);
+        
+        plot.forSale = false;
+        emit PlotAvailabilityChanged(index, plot.price, false);
     }
     
     function getPlots() public view returns(address[], bool[], uint[]) {
@@ -82,6 +89,34 @@ contract LandContract {
         
         return (addrs, available, price);
     }
+    
+    function buyPlot(uint index) public payable {
+        Plot storage plot = plots[index];
+        
+        require(msg.sender != plot.owner && plot.forSale && msg.value >= plot.price);
+        
+        if(plot.owner == 0x0) {
+            balances[owner] += msg.value;
+        }else {
+            balances[plot.owner] += msg.value;
+        }
+        
+        plot.owner = msg.sender;
+        plot.forSale = false;
+        
+        emit PlotOwnerChanged(index);
+    }
+    
+    function withdrawFunds() public {
+        address payee = msg.sender;
+        uint payment = balances[payee];
+    
+        require(payment > 0);
+    
+        balances[payee] = 0;
+        require(payee.send(payment));
+    }
+    
     
     function destroy() payable public {
         require(msg.sender == owner);

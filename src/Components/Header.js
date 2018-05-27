@@ -8,7 +8,7 @@ class Header extends React.Component {
         super(props);
 
         this.state = {
-            showAlert: false
+            showAlert: true
         }
         this.onkeyPress = this.onkeyPress.bind(this);
         this.dismissAlert = this.dismissAlert.bind(this);
@@ -30,7 +30,7 @@ class Header extends React.Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        if(nextProps.contractAddressValid && !this.props.contractAddressValid) {
+        if(nextProps.contractAddress !== this.props.contractAddress) {
             this.setState({ showAlert: true });
         }
     }
@@ -42,14 +42,14 @@ class Header extends React.Component {
                 <div className="text-center">
                     <ControlLabel className="text-left full-width">Contract Address</ControlLabel>
                     {this.props.contractAddress && this.props.contractAddressValid ?
-                        <span><h4>{this.props.contractAddress}</h4>
+                        <span className="pull-left"><label>{this.props.contractAddress}</label>
                         <Button onClick={this.changeAddress} bsStyle="link">Change</Button></span>
                         : <FormControl
                             type="text"
                             placeholder="Enter your contract address and press enter."
                             onKeyDown={this.onkeyPress}
                         />}
-                    {this.props.contractAddress && !this.props.contractAddressValid ?
+                    {this.state.showAlert && this.props.contractAddress && !this.props.contractAddressValid ?
                         <Alert bsStyle="danger" onDismiss={this.dismissAlert}>
                             <h4>Oh snap!</h4>
                             <p>

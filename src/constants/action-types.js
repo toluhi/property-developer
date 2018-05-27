@@ -1,5 +1,4 @@
-export const ADD_PROPERTY = "ADD_PROPERTY";
-export const ADD_PROPERTIES = "ADD_PROPERTIES";
+export const PLOTS_LOADED = "PLOTS_LOADED";
 export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
 export const LOGIN_FAILED = "LOGIN_FAILED";
 export const LOGOUT = "LOGOUT";
