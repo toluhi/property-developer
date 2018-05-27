@@ -50,8 +50,8 @@ export const changeContractAddress = (newAddress) => {
         if (web3.utils.isAddress(newAddress)) {
             let contractInstance = new web3.eth.Contract(abi, newAddress);
             dispatch({ type: CHANGE_CONTRACT_ADDRESS, payload: { contractAddress: newAddress, contractAddressValid: true, contractInstance: contractInstance } });
-            
             loadPlots(contractInstance, dispatch);
+            subscribeToEvents(contractInstance, dispatch);
         } else {
             dispatch({ type: CHANGE_CONTRACT_ADDRESS, payload: { contractAddress: newAddress, contractAddressValid: false, contractInstance: null } });
         }
@@ -112,4 +112,37 @@ let loadPlots = (contractInstance, dispatch) => {
                 dispatch({type: PLOTS_LOADED, payload: plots})
             })
             .catch(error => console.log(error));
+}
+
+let subscribeToEvents = (contractInstance, dispatch) => {
+    let plotOwnerChangedEvent = contractInstance.events.PlotOwnerChanged(
+        {
+          fromBlock: 0
+        },
+        function(error, event) {
+          console.log('PlotOwnerChanged event : ', event);
+          loadPlots(contractInstance, dispatch);
+        }
+      );
+
+      let plotPriceChangedEvent = contractInstance.events.PlotPriceChanged(
+        {
+          fromBlock: 0
+        },
+        function(error, event) {
+          console.log('PlotPriceChanged event : ', event);
+          loadPlots(contractInstance, dispatch);
+        }
+      );
+
+      let plotAvailabilityChangedEvent = contractInstance.events.PlotAvailabilityChanged(
+        {
+          fromBlock: 0
+        },
+        function(error, event) {
+          console.log('PlotAvailabilityChanged event : ', event);
+          loadPlots(contractInstance, dispatch);
+        }
+      );
+      
 }
