@@ -1,4 +1,4 @@
-#Property Developer
+# Property Developer
 
 This is part of a hands on solidity development training programme.
 It is a simple React based website. The task here is to implement a private ethereum based blockchain.
@@ -6,7 +6,7 @@ Then using the web3 api, connect this website to the local blockchain and intera
 
 You dont need to be an expert in React to complete this. You only need to modify the [actions](/src/actions/index.js) file.
 
-##Tasks
+## Tasks
 1. Setup a private etheruem blockchain. [Here](https://medium.com/coinmonks/ethereum-setting-up-a-private-blockchain-67bbb96cf4f1) is the link my step by step guide on setting up a private blockchain.
 2. Implement a smart contract in solidity using [remix](http://remix.ethereum.org/). Here are the requirements for the smart contract
 ..1 The smart contract should be owned by the creator
@@ -21,7 +21,7 @@ You dont need to be an expert in React to complete this. You only need to modify
 3. Generate the ABI using the command line or from remix (remix is simpler) and paste it into the [landContract.json](/src/contracts/landContract.json).
 4. Implement the missing functions in the [actions](/src/actions/index.js) file.
 
-##Useful links
+## Useful links
 [Solidity docs](http://solidity.readthedocs.io)
-[Web3 API](https://web3js.readthedocs.io/en/1.0/web3.html)
+[Web3 API](https://web3js.readthedocs.io/en/1.0/web3.html)  
 
