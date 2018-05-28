@@ -22,6 +22,6 @@ You dont need to be an expert in React to complete this. You only need to modify
 4. Implement the missing functions in the [actions](/src/actions/index.js) file.
 
 ## Useful links
-[Solidity docs](http://solidity.readthedocs.io)
-[Web3 API](https://web3js.readthedocs.io/en/1.0/web3.html)  
+1. [Solidity docs](http://solidity.readthedocs.io)
+2. [Web3 API](https://web3js.readthedocs.io/en/1.0/web3.html) 
 
