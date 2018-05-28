@@ -1,6 +1,6 @@
 # Property Developer
 
-![alt text](https://giphy.com/gifs/xWNblrEGJ75PzxK16Q/html5)
+![Alt text](https://giphy.com/gifs/xWNblrEGJ75PzxK16Q/html5)
 
 This is a hands on solidity development training programme.
 It is a simple React based website. The task here is to implement a private ethereum based blockchain.
