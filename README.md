@@ -1,8 +1,10 @@
 # Property Developer
 
-This is part of a hands on solidity development training programme.
+(https://media.giphy.com/media/xWNblrEGJ75PzxK16Q/giphy.gif)
+
+This is a hands on solidity development training programme.
 It is a simple React based website. The task here is to implement a private ethereum based blockchain.
-Then using the web3 api, connect this website to the local blockchain and interact with it.
+Then using the web3 api, connect this website to the local blockchain and interact with a smart contract.
 
 You dont need to be an expert in React to complete this. You only need to modify the [actions](/src/actions/index.js) file.
 
