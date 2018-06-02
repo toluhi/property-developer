@@ -28,4 +28,4 @@ You dont need to be an expert in React to complete this. You only need to modify
 
 
 
-geth --datadir ./datadir --networkid {your networkid} --rpc --rpcapi "db,personal,eth,net,web3,debug" --rpccorsdomain='*' --rpcaddr="localhost" --rpcport 8545 console
+geth --datadir ./datadir --networkid {your network id} --rpc --rpcapi "db,personal,eth,net,web3,debug" --rpccorsdomain='*' --rpcaddr="localhost" --rpcport 8545 --ws --wsapi "db,personal,eth,net,web3,debug"--wsorigins='*' --wsaddr="localhost" --wsport 8546 console
