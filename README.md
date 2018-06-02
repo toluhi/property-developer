@@ -25,3 +25,7 @@ You dont need to be an expert in React to complete this. You only need to modify
 1. [Solidity docs](http://solidity.readthedocs.io)
 2. [Web3 API](https://web3js.readthedocs.io/en/1.0/web3.html) 
 
+
+
+
+geth --datadir ./datadir --networkid 5555 --rpc --rpcaporkid 5555 --rpc --rpcapi "db,personal,eth,net,web3,debug" --rpccorsdomain='*' --cport 8545 consolerpcaddr="localhost" --rpcport 8545 console
